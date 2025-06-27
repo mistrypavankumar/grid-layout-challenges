@@ -42,18 +42,20 @@
       margin-bottom: 15px;
     }
 
-    a {
+    button {
       display: inline-block;
-      text-decoration: none;
       padding: 12px 20px;
       background-color: #3498db;
       color: white;
+      border: none;
       border-radius: 8px;
       font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    a:hover {
+    button:hover {
       background-color: #2980b9;
       transform: translateY(-2px);
     }
@@ -63,7 +65,7 @@
         font-size: 1.8rem;
       }
 
-      a {
+      button {
         width: 90%;
       }
     }
@@ -74,8 +76,14 @@
   <p>Open below links to see demo</p>
 
   <ul>
-    <li><a href="https://mistrypavankumar.github.io/grid-layout-challenges/bento-grid-main/index.html" target="_blank">Bento-grid-main</a></li>
-    <li><a href="https://mistrypavankumar.github.io/grid-layout-challenges/responsive-navbar/index.html" target="_blank">Responsive-navbar</a></li>
+    <li><button onclick="openProject('https://mistrypavankumar.github.io/grid-layout-challenges/bento-grid-main/index.html')">Bento-grid-main</button></li>
+    <li><button onclick="openProject('https://mistrypavankumar.github.io/grid-layout-challenges/responsive-navbar/index.html')">Responsive-navbar</button></li>
   </ul>
+
+  <script>
+    function openProject(path) {
+      window.open(path, "_blank");
+    }
+  </script>
 </body>
 </html>
