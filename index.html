@@ -1,1 +1,81 @@
-<h1>Hello Welcome to CSS-Grid Challenges</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Design</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #e8f0fe);
+      color: #333;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    li {
+      margin-bottom: 15px;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 20px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    a:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      a {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello! Welcome to CSS-Grid Challenges</h1>
+  <p>Open below links to see demo</p>
+
+  <ul>
+    <li><a href="/bento-grid-main/index.html">Bento-grid-main</a></li>
+    <li><a href="/responsive-navbar/index.html">Responsive-navbar</a></li>
+  </ul>
+</body>
+</html>
