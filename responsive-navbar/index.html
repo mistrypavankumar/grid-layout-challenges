@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="mobile_view_navbar">
+      <button
+        id="open-sidebar-button"
+        class="menu-button"
+        onclick="openSidebar()"
+        aria-label="open sidebar"
+        aria-expanded="false"
+        aria-controls="navbar"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li>
+          <button
+            id="close-sidebar-button"
+            onclick="closeSidebar()"
+            aria-label="close sidebar"
+          >
+            X
+          </button>
+        </li>
+        <li class="home-li">
+          <a href="#home" class="active-link" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="#about">About</a>
+        </li>
+        <li>
+          <a href="#features">Features</a>
+        </li>
+        <li>
+          <a href="#pricing">Pricing</a>
+        </li>
+        <li>
+          <a href="#" class="accent-link">Login</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
+
+    <section id="home">
+      <h1>Home</h1>
+      <p>
+        Welcome to our platform — your all-in-one solution for managing
+        projects, collaborating with teams, and boosting productivity. Join
+        thousands of professionals who trust us every day.
+      </p>
+      <button>Get Started</button>
+    </section>
+
+    <section id="about">
+      <h1>About</h1>
+      <p>
+        We are a passionate team of developers, designers, and problem-solvers
+        committed to creating intuitive software that empowers individuals and
+        organizations. Founded in 2020, our mission is to simplify your digital
+        workflows.
+      </p>
+    </section>
+
+    <section id="features">
+      <h1>Features</h1>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Real-time Collaboration</h3>
+          <p>
+            Work together with your team seamlessly, whether you're remote or
+            in-office.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Task Automation</h3>
+          <p>
+            Automate repetitive tasks to save time and focus on what matters
+            most.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Analytics Dashboard</h3>
+          <p>
+            Track progress, KPIs, and team performance from a single dashboard.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Cloud Sync</h3>
+          <p>Access your data anytime, anywhere, from any device securely.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h1>Pricing</h1>
+      <div class="pricing_container">
+        <div>
+          <h3>Free Plan</h3>
+          <p>
+            $0/month — Ideal for individuals just getting started. Includes
+            basic features.
+          </p>
+        </div>
+        <div>
+          <h3>Pro Plan</h3>
+          <p>
+            $19/month — Perfect for growing teams. Includes advanced tools and
+            priority support.
+          </p>
+        </div>
+        <div>
+          <h3>Enterprise</h3>
+          <p>
+            Contact us for a custom quote — Tailored solutions for large
+            organizations with premium support.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      const openButton = document.getElementById("open-sidebar-button");
+
+      const media = window.matchMedia("(width < 700px)");
+
+      const updateNavbar = (e) => {
+        const isMobile = e.matches;
+        console.log(e);
+
+        if (isMobile) {
+          navbar.setAttribute("inert", "");
+        } else {
+          navbar.removeAttribute("inert");
+        }
+      };
+
+      media.addEventListener("change", (e) => updateNavbar(e));
+
+      const openSidebar = () => {
+        navbar.classList.add("show");
+        openButton.setAttribute("aria-expanded", "true");
+        navbar.removeAttribute("inert");
+      };
+
+      const closeSidebar = () => {
+        navbar.classList.remove("show");
+        openButton.setAttribute("aria-expanded", "false");
+        navbar.setAttribute("inert", "");
+      };
+
+      const navlinks = document.querySelectorAll("nav a");
+
+      if (media.matches) {
+        navlinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            closeSidebar();
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
