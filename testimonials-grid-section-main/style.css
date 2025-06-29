@@ -75,6 +75,19 @@ main {
   display: flex;
   flex-direction: column;
   gap: 25px;
+
+  position: relative;
+}
+
+.quote {
+  position: absolute;
+  right: 15%;
+  top: 0;
+}
+
+.card_container .profile,
+.card_container div:last-child {
+  z-index: 1;
 }
 
 .card_container .profile {
