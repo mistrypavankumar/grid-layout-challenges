@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Default: Dark theme */
+:root {
+  --bg-dark: hsl(0, 0%, 0%);
+  --bg: hsl(0, 0%, 5%);
+  --bg-light: hsl(0, 0%, 10%);
+  --text: hsl(0, 0%, 95%);
+  --text-muted: hsl(0, 0%, 70%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-dark: hsl(0, 0%, 0%);
+    --bg: hsl(0, 0%, 5%);
+    --bg-light: hsl(0, 0%, 10%);
+    --text: hsl(0, 0%, 95%);
+    --text-muted: hsl(0, 0%, 70%);
+  }
+}
+
+/* Manual toggle override */
+body.light {
+  --bg-dark: hsl(0, 0%, 90%);
+  --bg: hsl(0, 0%, 95%);
+  --bg-light: hsl(0, 0%, 100%);
+  --text: hsl(0, 0%, 5%);
+  --text-muted: hsl(0, 0%, 30%);
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-muted);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+button {
+  background: var(--bg-light);
+  padding: 0.5rem 1rem 0.7rem 1rem;
+  color: var(--text);
+  font-weight: 700;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100dvh;
+  height: 100vh;
+}
+
+main > div {
+  background-color: var(--bg);
+  width: min(500px, 90%);
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  button {
+    margin-top: 1.5rem;
+    cursor: pointer;
+  }
+}

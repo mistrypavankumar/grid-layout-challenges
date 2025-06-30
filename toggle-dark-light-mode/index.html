@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Dark - Light mode</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main>
+        <div>
+            <h1>Sharp heading</h1>
+            <p>A muted shade for the rest of the text.</p>
+
+            <button onclick="toogleMode()">
+                Some Action
+            </button>
+        </div>
+    </main>
+
+    <script>
+        function toogleMode() {
+            document.body.classList.toggle("light")
+        }
+    </script>
+</body>
+
+</html>
