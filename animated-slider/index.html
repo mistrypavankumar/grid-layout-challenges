@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Slider</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="card_container">
+        <div class="card active">
+          <h2>Card Title1</h2>
+          <p>Card content goes here.</p>
+        </div>
+        <div class="card next">
+          <h2>Card Title2</h2>
+          <p>Card content goes here.</p>
+        </div>
+        <div class="card">
+          <h2>Card Title3</h2>
+          <p>Card content goes here.</p>
+        </div>
+        <div class="card">
+          <h2>Card Title4</h2>
+          <p>Card content goes here.</p>
+        </div>
+      </div>
+      <div class="button_container">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+      </div>
+    </main>
+
+    <script>
+      const cards = document.querySelectorAll(".card");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let currentIndex = 0;
+
+      function updateCards() {
+        cards.forEach((card, index) => {
+          card.classList.remove("active", "previous", "next");
+
+          if (index === currentIndex) {
+            card.classList.add("active");
+          } else if (
+            index ===
+            (currentIndex - 1 + cards.length) % cards.length
+          ) {
+            card.classList.add("previous");
+          } else if (index === (currentIndex + 1) % cards.length) {
+            card.classList.add("next");
+          }
+        });
+      }
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCards();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCards();
+      });
+    </script>
+  </body>
+</html>
